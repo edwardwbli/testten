@@ -17,7 +17,7 @@ target3 = np.ones((100,1)) * 3
 sample3 = np.hstack((customer3,target3))
 
 customer4 = np.random.random((100,12))*50000
-target4 = np.ones((100,1))    
+target4 = np.ones((100,1)) * 4
 sample4 = np.hstack((customer4,target4))
 #pl.polar(customer1)
 #pl.savefig('book5_read.png')
