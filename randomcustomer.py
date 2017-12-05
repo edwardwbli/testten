@@ -29,7 +29,7 @@ np.savetxt("c4.csv", sample4, fmt="%10d",delimiter=",")
 
 sample_files = gb.glob("c*.csv") 
 
-with open("samples.csv","wb") as sf:
+with open("tests.csv","wb") as sf:
 	for filename in sample_files:
 		with open(filename) as fl:
 			for line in fl:
