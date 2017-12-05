@@ -10,5 +10,5 @@ customer3 = np.random.random((12,100))*50000
 customer4 = np.random.random((12,100))*100000
 print(customer1)
 
-pl.plot(customer1)
+pl.polar(customer1)
 pl.savefig('book5_read.png')
