@@ -4,8 +4,8 @@ import numpy as np
 #mp.use('Agg') #disable using DISPLAY 
 #import matplotlib.pyplot as pl
 
-customer1 = np.random.random((100,12))*5000
-target1 = np.ones((100,1))
+customer1 = np.random.random((100,12))*10000
+target1 = np.ones((100,1)) * 2
 sample1 = np.hstack((customer1,target1))
 print(sample1)
 
