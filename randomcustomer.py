@@ -1,5 +1,6 @@
 from __future__ import print_function
 import numpy as np
+import glob as gb
 #import matplotlib as mp
 #mp.use('Agg') #disable using DISPLAY 
 #import matplotlib.pyplot as pl
@@ -21,8 +22,15 @@ target4 = np.ones((100,1)) * 4
 sample4 = np.hstack((customer4,target4))
 #pl.polar(customer1)
 #pl.savefig('book5_read.png')
-a = np.asarray(sample1)
 np.savetxt("c1.csv", sample1, fmt="%10d",delimiter=",")
 np.savetxt("c2.csv", sample2, fmt="%10d",delimiter=",")
 np.savetxt("c3.csv", sample3, fmt="%10d",delimiter=",")
 np.savetxt("c4.csv", sample4, fmt="%10d",delimiter=",")
+
+sample_files = gb.glob("c*.csv") 
+
+with open("samples.csv","wb") as sf:
+	for filename in sample_files:
+		with open(filename) as fl:
+			for line in fl:
+		                sf.write(line)	 
