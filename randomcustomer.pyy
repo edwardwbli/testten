@@ -13,5 +13,5 @@ print(customer1)
 #pl.polar(customer1)
 #pl.savefig('book5_read.png')
 a = np.asarray(customer1)
-np.savetxt("c1.csv", a, delimiter=",")
+np.savetxt("c1.csv", a,fmt='%10.2f',newline="\n",delimiter=",")
 
