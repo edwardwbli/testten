@@ -20,12 +20,13 @@ def main():
         classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),model_dir="./customer_model9",hidden_units=[12, 12],n_classes=5)
 
         # Classify two new flower samples.
+	# enhance to use two sample with same offset to make predictions of next level of customer
         def new_samples():
                 offset = input("input offset: ")
 		sample = np.random.random((1,12))*offset
 		print(sample)	
 		return np.array(sample, dtype=np.int)
-
+	
         predictions = list(classifier.predict(input_fn=new_samples))
 
         print("New Samples, Class Predictions:    {}n".format(predictions))
