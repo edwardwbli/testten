@@ -46,8 +46,8 @@ def main():
                 return x, y
 
         # Fit model.
-	#for _ in range(1,53):
-	classifier.fit(input_fn=get_train_inputs, steps=1000)
+	for _ in range(1,53):
+		classifier.fit(input_fn=get_train_inputs, steps=1000)
 
         # Define the test inputs
         def get_test_inputs():

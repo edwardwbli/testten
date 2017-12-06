@@ -21,8 +21,10 @@ def main():
 
         # Classify two new flower samples.
         def new_samples():
-		customer1 = np.random.random((1,12))*5000
-                return np.array(customer1, dtype=np.int)
+                offset = input("input offset: ")
+		sample = np.random.random((1,12))*offset
+		print(sample)	
+		return np.array(sample, dtype=np.int)
 
         predictions = list(classifier.predict(input_fn=new_samples))
 
