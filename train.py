@@ -13,18 +13,18 @@ tf.logging.set_verbosity(tf.logging.ERROR)              #日志级别设置成 E
 np.set_printoptions(threshold='nan')                    #打印内容不限制长度
 
 # Data sets
-IRIS_TRAINING = "sample2.csv"
+TRAINING = "sample2.csv"
 
-IRIS_TEST = "test2.csv"
+TEST = "test2.csv"
 
 def main():
 
         # Load datasets.
-        training_set = tf.contrib.learn.datasets.base.load_csv_with_header(filename=IRIS_TRAINING,
+        training_set = tf.contrib.learn.datasets.base.load_csv_with_header(filename=TRAINING,
                 target_dtype=np.int,
                 features_dtype=np.int)
 
-        test_set = tf.contrib.learn.datasets.base.load_csv_with_header(filename=IRIS_TEST,
+        test_set = tf.contrib.learn.datasets.base.load_csv_with_header(filename=TEST,
                 target_dtype=np.int,
                 features_dtype=np.int)
 
