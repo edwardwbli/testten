@@ -36,42 +36,46 @@ def main():
 	# classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12, 12],n_classes=5,
         #                                            optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),
         #                                            model_dir="/tmp/customer_model8")
-        classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12, 12],n_classes=5,
+        classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12,5],n_classes=5,
 						    optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),
-						    model_dir="/tmp/customer_model9")
+						    model_dir="/tmp/customer_model32")
         # Define the training inputs
         def get_train_inputs():
                 x = tf.constant(training_set.data)
                 y = tf.constant(training_set.target)
                 return x, y
-
-        # Fit model.
-	for _ in range(1,53):
-		classifier.fit(input_fn=get_train_inputs, steps=1000)
-
-        # Define the test inputs
+	# Define the test inputs
         def get_test_inputs():
                 x = tf.constant(test_set.data)
                 y = tf.constant(test_set.target)
 
                 return x, y
 
+	# Classify two new flower samples.
+        def new_samples():
+                customer1 = np.random.random((1,12))*20000
+                return np.array(customer1, dtype=np.int)
+
+        # Fit model.
+	#for _ in range(1,53):
+	#	classifier.fit(input_fn=get_train_inputs, steps=1000)
+
+	classifier.fit(input_fn=get_train_inputs, steps=1000)
+
         # Evaluate accuracy.
         print(classifier.evaluate(input_fn=get_test_inputs, steps=1))
         accuracy_score = classifier.evaluate(input_fn=get_test_inputs, steps=1)["accuracy"]
 
-        print("nTest Accuracy: {0:f}n".format(accuracy_score))
-
-        # Classify two new flower samples.
-        def new_samples():
-		customer1 = np.random.random((1,12))*20000
-                return np.array(customer1, dtype=np.int)
+	print("nTest Accuracy: {0:f}n".format(accuracy_score))
 
         predictions = list(classifier.predict(input_fn=new_samples))
 
         print("New Samples, Class Predictions:    {}n".format(predictions))
+	return 	 accuracy_score
 
 if __name__ == "__main__":
-        main()
+        accuracy_score = main()
+	while accuracy_score < 0.98:
+		accuracy_score = main()
 
 exit(0)

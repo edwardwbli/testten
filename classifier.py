@@ -17,7 +17,7 @@ def main():
 
 	# Specify that all features have real-value data
         feature_columns = [tf.contrib.layers.real_valued_column("", dimension=12)]
-        classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),model_dir="./customer_model9",hidden_units=[12, 12],n_classes=5)
+        classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),model_dir="./customer_model32",hidden_units=[12, 5],n_classes=5)
 
         # Classify two new flower samples.
 	# enhance to use two sample with same offset to make predictions of next level of customer
