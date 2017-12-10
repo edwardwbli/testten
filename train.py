@@ -32,10 +32,7 @@ def main():
         feature_columns = [tf.contrib.layers.real_valued_column("", dimension=12)]
 
         # Build 3 layer DNN with 10, 20, 10 units respectively.
-	# model8 is a better version till now , with DDNClassifier option
-	# classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12, 12],n_classes=5,
-        #                                            optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),
-        #                                            model_dir="/tmp/customer_model8")
+
         classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12,6],n_classes=5,
 						    optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),
 						    model_dir="/tmp/customer_model34")
