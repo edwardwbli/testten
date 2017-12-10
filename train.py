@@ -33,9 +33,9 @@ def main():
 
         # Build 3 layer DNN with 10, 20, 10 units respectively.
 
-        classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12,5],n_classes=5,
+        classifier = tf.contrib.learn.DNNClassifier(feature_columns=feature_columns,hidden_units=[12,6],n_classes=5,
 						    optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01,l1_regularization_strength=0.001),
-						    model_dir="/tmp/customer_model32")
+						    model_dir="/tmp/customer_model34")
         # Define the training inputs
         def get_train_inputs():
                 x = tf.constant(training_set.data)
