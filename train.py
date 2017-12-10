@@ -8,7 +8,7 @@ import tensorflow as tf
 import numpy as np
 import os
 import urllib
-
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 tf.logging.set_verbosity(tf.logging.ERROR)              #日志级别设置成 ERROR，避免干扰
 np.set_printoptions(threshold='nan')                    #打印内容不限制长度
 

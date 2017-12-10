@@ -8,7 +8,9 @@ import tensorflow as tf
 import numpy as np
 import os
 import urllib
-
+#deactivate the warning about the 
+#017-12-11 06:51:50.748014: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 tf.logging.set_verbosity(tf.logging.ERROR)              #日志级别设置成 ERROR，避免干扰
 np.set_printoptions(threshold='nan')                    #打印内容不限制长度
 
